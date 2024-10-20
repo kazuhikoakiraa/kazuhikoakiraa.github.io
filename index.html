@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>One Piece Fans Club</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        font-family: "Poppins";
+        margin: 0;
+        padding: 0;
+        background-color: #f0f2f5;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .wrapper {
+        display: flex;
+        flex: 1;
+      }
+
+      header {
+        background-color: #8b0000;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        width: 100%;
+        z-index: 1050;
+        position: relative;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      header img {
+        height: 80px;
+        margin-right: 20px;
+      }
+      header h1 {
+        margin: 0;
+        font-size: 2.5em;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+      }
+
+      .main-container {
+        display: flex;
+        flex: 1;
+        min-height: calc(100vh - 160px); /* Menyesuaikan tinggi header dan footer */
+      }
+
+      .sidebar {
+        background-color: #4e342e;
+        color: white;
+        padding: 20px;
+        width: 300px;
+        overflow-y: auto;
+        flex-shrink: 0;
+      }
+      .sidebar ul {
+        list-style: none;
+        padding: 0;
+      }
+      .sidebar ul li {
+        margin: 20px 0;
+      }
+      .sidebar ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+      }
+      .sidebar ul li a:hover {
+        color: #ffcc80;
+        text-decoration: underline;
+      }
+
+      .content {
+        flex: 1;
+        padding: 40px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        overflow-y: auto;
+      }
+
+      .crew-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin-top: 30px;
+      }
+      .card {
+        background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        border-radius: 15px;
+        overflow: hidden;
+        transition: transform 0.2s, box-shadow 0.3s;
+        animation: slideInCard 0.8s ease-out;
+      }
+      @keyframes slideInCard {
+        0% {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+      }
+      .card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+      .card-content {
+        padding: 20px;
+        text-align: center;
+      }
+      .card-content h3 {
+        margin: 0;
+        font-size: 1.5em;
+        color: #333;
+      }
+      .card-content p {
+        color: #555;
+        margin: 10px 0;
+      }
+
+      footer {
+        background-color: #8b0000;
+        text-align: center;
+        padding: 20px;
+        color: #fff;
+        position: relative;
+        z-index: 1050;
+        box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      @media (max-width: 768px) {
+        .sidebar {
+          display: none;
+        }
+        .content {
+          margin-left: 0;
+          padding: 20px;
+        }
+        .offcanvas {
+          top: 0;
+          width: 100%;
+          max-width: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header
+      itemscope
+      itemtype="http://schema.org/WPHeader"
+      class="d-flex align-items-center justify-content-center"
+    >
+      <img
+        src="assets/logo.jpg.png"
+        alt="Straw Hat Crew Logo"
+        itemprop="image"
+      />
+      <h1 itemprop="headline">Mugiwara Nakama</h1>
+    </header>
+
+    <div class="main-container">
+      <div class="sidebar d-none d-lg-block">
+        <ul>
+          <li><a href="index.html" itemprop="url">Beranda</a></li>
+          <li><a href="form.html" itemprop="url">Form Pendaftaran</a></li>
+          <li><a href="table.html" itemprop="url">Daftar Member Saat Ini</a></li>
+        </ul>
+      </div>
+
+      <main class="content" itemscope itemprop="mainContentOfPage" id="content">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4 d-lg-none">
+          <div class="container-fluid">
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+                <li class="nav-item">
+                  <a class="nav-link" href="form.html">Form Pendaftaran</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="table.html">Daftar Member Saat Ini</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+        <section class="mt-5">
+          <h3>Seputar Dunia One Piece</h3>
+          <p>
+            One Piece adalah sebuah manga dan anime yang sangat populer di seluruh dunia. Diciptakan oleh Eiichiro Oda, cerita ini mengikuti petualangan Monkey D. Luffy dan krunya, yang dikenal sebagai Straw Hat Pirates. Mereka berpetualang untuk menemukan harta karun legendaris bernama "One Piece" dan mewujudkan impian Luffy untuk menjadi Raja Bajak Laut.
+          </p>
+          <h4>Sejarah One Piece</h4>
+          <p>
+            Manga One Piece pertama kali diterbitkan pada tahun 1997 di majalah Weekly Shonen Jump. Sejak itu, One Piece telah berkembang menjadi salah satu seri manga dan anime paling sukses dalam sejarah, dengan jutaan penggemar di seluruh dunia. Kesuksesan One Piece tidak hanya terletak pada alur cerita yang menarik dan penuh misteri, tetapi juga pada pengembangan karakter yang mendalam, humor, dan adegan aksi yang mendebarkan.
+          </p>
+          <h4>Buah Iblis</h4>
+          <p>
+            Buah Iblis adalah buah-buahan misterius di dunia One Piece yang memberikan kekuatan super kepada orang yang memakannya, dengan mengorbankan kemampuan mereka untuk berenang. Terdapat tiga jenis Buah Iblis, yaitu Paramecia, Zoan, dan Logia. Buah Paramecia memberikan kekuatan fisik atau kemampuan khusus, Zoan memungkinkan penggunanya berubah menjadi hewan atau campuran manusia dan hewan, sementara Logia memberikan kekuatan untuk mengendalikan dan berubah menjadi elemen alam seperti api atau petir.
+          </p>
+          <h4>Grand Line dan New World</h4>
+          <p>
+            Grand Line adalah lautan yang dianggap sebagai rute terberat dan paling berbahaya di dunia One Piece, tempat berbagai petualangan dan pertempuran besar terjadi. Setelah mencapai bagian pertama Grand Line, kru Luffy memasuki dunia yang lebih menantang, yaitu New World, yang merupakan tempat berkumpulnya para bajak laut terkuat dan wilayah kekuasaan Yonko, yaitu empat kaisar lautan.
+          </p>
+          <h4>Yonko dan Shichibukai</h4>
+          <p>
+            Yonko adalah empat bajak laut terkuat yang menguasai separuh lautan di New World. Mereka adalah penghalang utama bagi siapa pun yang ingin menjadi Raja Bajak Laut. Selain itu, ada juga Shichibukai, yaitu tujuh bajak laut yang bekerja untuk Pemerintah Dunia dan diberikan kebebasan dalam menjalankan aktivitas bajak laut mereka sebagai imbalan atas kerja sama mereka.
+          </p>
+          <h4>Pemerintah Dunia dan Angkatan Laut</h4>
+          <p>
+            Pemerintah Dunia adalah organisasi terbesar yang mengatur seluruh lautan di dunia One Piece. Mereka bekerja sama dengan Angkatan Laut untuk menjaga ketertiban dan menindak bajak laut. Angkatan Laut adalah kekuatan militer utama yang dipimpin oleh Admiral dan Fleet Admiral, yang bertugas menangkap bajak laut dan menjaga perdamaian dunia.
+          </p>
+          <h4>Perang Marineford</h4>
+          <p>
+            Perang Marineford, juga dikenal sebagai Perang Puncak, adalah salah satu peristiwa terbesar di dunia One Piece. Perang ini terjadi antara Pasukan Angkatan Laut, Shichibukai, dan Aliansi Bajak Laut Whitebeard. Perang ini berlangsung untuk menyelamatkan Portgas D. Ace, saudara Luffy, yang ditahan dan dijatuhi hukuman mati oleh Pemerintah Dunia. Peristiwa ini mengubah tatanan dunia bajak laut dan menjadi titik balik penting dalam kisah Luffy dan kawan-kawan.
+          </p>
+          <h4>Arc Dressrosa</h4>
+          <p>
+            Arc Dressrosa adalah salah satu bagian penting dalam cerita One Piece. Kru Topi Jerami menghadapi Donquixote Doflamingo, seorang mantan Shichibukai yang juga seorang Naga Langit. Doflamingo menguasai Dressrosa dengan tangan besi, dan Luffy bersama Law membentuk aliansi untuk menjatuhkannya. Arc ini menampilkan banyak pertempuran epik dan memperkenalkan karakter-karakter baru seperti Rebecca, Kyros, dan para Gladiator Colosseum.
+          </p>
+          <h4>Revolusi dan Tentara Revolusioner</h4>
+          <p>
+            Tentara Revolusioner adalah organisasi yang bertujuan untuk menggulingkan Pemerintah Dunia yang dianggap tirani. Dipimpin oleh Monkey D. Dragon, ayah dari Luffy, Tentara Revolusioner berusaha untuk memberikan kebebasan kepada negara-negara yang tertindas oleh Pemerintah Dunia. Banyak anggota Tentara Revolusioner yang kuat, termasuk Sabo, saudara angkat Luffy dan Ace, yang menjadi Chief of Staff organisasi ini.
+          </p>
+          <h4>Pulau Manusia Ikan</h4>
+          <p>
+            Pulau Manusia Ikan adalah salah satu tempat yang dikunjungi oleh Luffy dan krunya setelah memasuki New World. Di sana, mereka bertemu dengan Jinbe dan membantu memecahkan konflik antara manusia ikan dan manusia. Pulau Manusia Ikan merupakan tempat penting dalam kisah karena menunjukkan ketegangan antara dua ras yang berbeda dan menggambarkan pesan toleransi dan persatuan.
+          </p>
+          <h4>Arc Wano</h4>
+          <p>
+            Arc Wano adalah salah satu arc terbesar dalam cerita One Piece, di mana kru Topi Jerami berusaha menggulingkan Kaisar Kaido, salah satu Yonko yang paling kuat. Wano adalah negeri tertutup yang terinspirasi oleh Jepang feodal, dengan samurai dan budaya yang unik. Pertempuran di Wano menjadi titik penting bagi Luffy dan aliansinya, karena mereka berhadapan dengan ancaman besar dan membentuk aliansi untuk menggulingkan pemerintahan Kaido.
+          </p>
+        </section>
+
+        <h3>Straw Hat Crew</h3>
+        <div class="crew-cards">
+          <div class="card">
+            <img src="assets/luffy.jpg" alt="Monkey D. Luffy" />
+            <div class="card-content">
+              <h3>Monkey D. Luffy</h3>
+              <p>
+                Kapten kru, pemakan buah Gomu Gomu no Mi, bercita-cita menjadi Raja
+                Bajak Laut.
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="assets/zoro.jpg" alt="Roronoa Zoro" />
+            <div class="card-content">
+              <h3>Roronoa Zoro</h3>
+              <p>
+                Ahli pedang kru, pengguna teknik tiga pedang, bercita-cita menjadi
+                pendekar pedang terkuat di dunia.
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="assets/nami.jpg" alt="Nami" />
+            <div class="card-content">
+              <h3>Nami</h3>
+              <p>Navigator kru, sangat ahli dalam membaca cuaca dan membuat peta.</p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="assets/Usopp.jpg" alt="Usopp" />
+            <div class="card-content">
+              <h3>Usopp</h3>
+              <p>Penembak jitu kru, jenius dalam strategi dan penggunaan ketapel.</p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="assets/sanji.jpg" alt="Sanji" />
+            <div class="card-content">
+              <h3>Sanji</h3>
+              <p>
+                Koki kru, pengguna tendangan kuat, bercita-cita menemukan All Blue.
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="assets/chopper.jpg" alt="Tony Tony Chopper" />
+            <div class="card-content">
+              <h3>Tony Tony Chopper</h3>
+              <p>
+                Dokter kru, pemakan buah Hito Hito no Mi, dapat berubah menjadi
+                manusia.
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="assets/robin.jpg" alt="Nico Robin" />
+            <div class="card-content">
+              <h3>Nico Robin</h3>
+              <p>
+                Ahli arkeologi kru, pemakan buah Hana Hana no Mi, dapat menumbuhkan
+                bagian tubuh.
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="assets/franky.jpg" alt="Franky" />
+            <div class="card-content">
+              <h3>Franky</h3>
+              <p>
+                Tukang kapal kru, seorang cyborg, sangat ahli dalam membangun dan
+                memperbaiki kapal.
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="assets/brook.jpg" alt="Brook" />
+            <div class="card-content">
+              <h3>Brook</h3>
+              <p>
+                Musisi kru, pemakan buah Yomi Yomi no Mi, dapat hidup kembali setelah
+                kematian.
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="assets/Jinbe.jpg" alt="Jinbe" />
+            <div class="card-content">
+              <h3>Jinbe</h3>
+              <p>
+                Ahli kemudi kru, mantan Shichibukai, seorang manusia ikan yang ahli
+                dalam karate manusia ikan.
+              </p>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <footer itemscope itemtype="http://schema.org/WPFooter">
+      <p>&copy; 2024 One Piece Fans Club. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

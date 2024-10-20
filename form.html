@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Pendaftaran Fans Club</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        font-family: "Poppins";
+        margin: 0;
+        padding: 0;
+        background-color: #f0f2f5;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .wrapper {
+        display: flex;
+        flex: 1;
+      }
+
+      header {
+        background-color: #8b0000;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        width: 100%;
+        z-index: 1050;
+        position: relative;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      header img {
+        height: 80px;
+        margin-right: 20px;
+      }
+      header h1 {
+        margin: 0;
+        font-size: 2.5em;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+      }
+
+      .main-container {
+        display: flex;
+        flex: 1;
+        min-height: calc(100vh - 160px); /* Menyesuaikan tinggi header dan footer */
+      }
+
+      .sidebar {
+        background-color: #4e342e;
+        color: white;
+        padding: 20px;
+        width: 300px;
+        overflow-y: auto;
+        flex-shrink: 0;
+      }
+      .sidebar ul {
+        list-style: none;
+        padding: 0;
+      }
+      .sidebar ul li {
+        margin: 20px 0;
+      }
+      .sidebar ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+      }
+      .sidebar ul li a:hover {
+        color: #ffcc80;
+        text-decoration: underline;
+      }
+
+      .content {
+        flex: 1;
+        padding: 40px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        overflow-y: auto;
+      }
+
+      .table-container {
+        max-height: 400px;
+        overflow-y: auto;
+      }
+      table tbody tr:nth-child(odd) {
+        background-color: #f9f9f9;
+      }
+      table tbody tr:nth-child(even) {
+        background-color: #e9ecef;
+      }
+      table tbody tr:hover {
+        background-color: #ffcc80;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      footer {
+        background-color: #8b0000;
+        text-align: center;
+        padding: 20px;
+        color: #fff;
+        position: relative;
+        z-index: 1050;
+        box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      form {
+        background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        animation: slideIn 0.8s ease-out;
+      }
+      @keyframes slideIn {
+        0% {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .form-label {
+        font-weight: 700;
+        color: #333;
+      }
+      .form-control {
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        transition: all 0.3s ease;
+      }
+      .form-control:focus {
+        border-color: #8b0000;
+        box-shadow: 0 0 8px rgba(139, 0, 0, 0.4);
+      }
+      button[type="submit"] {
+        background-color: #8b0000;
+        border: none;
+        padding: 10px;
+        border-radius: 10px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+      }
+      button[type="submit"]:hover {
+        background-color: #a30000;
+        transform: scale(1.05);
+      }
+      button[type="submit"]:active {
+        transform: scale(0.95);
+      }
+
+      @media (max-width: 768px) {
+        .sidebar {
+          display: none;
+        }
+        .content {
+          margin-left: 0;
+          padding: 20px;
+        }
+        .offcanvas {
+          top: 0;
+          width: 100%;
+          max-width: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header
+      itemscope
+      itemtype="http://schema.org/WPHeader"
+      class="d-flex align-items-center justify-content-center"
+    >
+      <img
+        src="assets/logo.jpg.png"
+        alt="Straw Hat Crew Logo"
+        itemprop="image"
+      />
+      <h1 itemprop="headline">Mugiwara Nakama</h1>
+    </header>
+
+    <div class="main-container">
+      <div class="sidebar d-none d-lg-block">
+        <ul>
+          <li><a href="index.html" itemprop="url">Beranda</a></li>
+          <li><a href="form.html" itemprop="url">Form Pendaftaran</a></li>
+          <li><a href="table.html" itemprop="url">Daftar Member Saat Ini</a></li>
+        </ul>
+      </div>
+
+      <main class="content" itemscope itemprop="mainContentOfPage" id="content">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4 d-lg-none">
+          <div class="container-fluid">
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+                <li class="nav-item">
+                  <a class="nav-link" href="form.html">Form Pendaftaran</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="table.html">Daftar Member Saat Ini</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+        <h2 class="mb-4 text-center">Form Pendaftaran Member Fans Club</h2>
+        <form class="p-4 border rounded shadow-sm bg-light">
+          <div class="mb-3">
+            <label for="nama" class="form-label">Nama Lengkap</label>
+            <input type="text" class="form-control" id="nama" placeholder="Masukkan nama lengkap" required />
+          </div>
+          <div class="mb-3">
+            <label for="jenisKelamin" class="form-label">Jenis Kelamin</label>
+            <select class="form-select" id="jenisKelamin" required>
+              <option value="">Pilih jenis kelamin</option>
+              <option value="Laki-laki">Laki-laki</option>
+              <option value="Perempuan">Perempuan</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Masukkan email" required />
+          </div>
+          <div class="mb-3">
+            <label for="pekerjaan" class="form-label">Pekerjaan</label>
+            <input type="text" class="form-control" id="pekerjaan" placeholder="Masukkan pekerjaan" required />
+          </div>
+          <div class="mb-3">
+            <label for="domisili" class="form-label">Domisili</label>
+            <input type="text" class="form-control" id="domisili" placeholder="Masukkan domisili" required />
+          </div>
+          <div class="mb-3">
+            <label for="tanggalLahir" class="form-label">Tanggal Lahir</label>
+            <input type="date" class="form-control" id="tanggalLahir" required />
+          </div>
+          <div class="mb-3">
+            <label for="nomorTelepon" class="form-label">Nomor Telepon</label>
+            <input type="tel" class="form-control" id="nomorTelepon" placeholder="Masukkan nomor telepon" required />
+          </div>
+          <button type="submit" class="btn btn-primary w-100 mt-4">Daftar</button>
+        </form>
+      </main>
+    </div>
+
+    <footer itemscope itemtype="http://schema.org/WPFooter">
+      <p>&copy; 2024 One Piece Fans Club. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
